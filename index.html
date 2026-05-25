@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,0.72),
+        rgba(0,0,0,0.82)
+    ),
+    url('background.jpg');
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    color:white;
+}
+
+/* PAGE */
+
+.section{
+
+    position:absolute;
+    inset:0;
+
+    width:100%;
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    padding:25px;
+
+    transition:1s ease;
+}
+
+.hidden{
+
+    opacity:0;
+    pointer-events:none;
+    transform:scale(1.05);
+
+}
+
+/* CONTENT */
+
+.container{
+
+    width:100%;
+    max-width:850px;
+
+    animation:fadeUp 1s ease;
+
+}
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+h1{
+
+    font-size:clamp(2.5rem, 12vw, 5.5rem);
+
+    line-height:1.1;
+
+    margin-bottom:25px;
+
+    font-weight:800;
+
+    text-shadow:
+    0 0 15px rgba(255,255,255,0.15),
+    0 0 40px rgba(255,255,255,0.08);
+
+}
+
+p{
+
+    font-size:1.05rem;
+
+    line-height:2;
+
+    color:rgba(255,255,255,0.88);
+
+    margin-bottom:35px;
+
+    font-weight:300;
+}
+
+button{
+
+    border:none;
+
+    padding:15px 35px;
+
+    border-radius:50px;
+
+    background:rgba(255,255,255,0.1);
+
+    border:1px solid rgba(255,255,255,0.15);
+
+    color:white;
+
+    font-size:1rem;
+
+    font-weight:600;
+
+    backdrop-filter:blur(10px);
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+button:hover{
+
+    transform:translateY(-3px);
+
+    background:rgba(255,255,255,0.16);
+
+}
+
+/* DOT */
+
+.dot-container{
+
+    position:absolute;
+
+    bottom:35px;
+
+    display:flex;
+
+    gap:10px;
+}
+
+.dot{
+
+    width:10px;
+    height:10px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,0.3);
+
+}
+
+.active{
+    background:white;
+}
+
+/* FINAL */
+
+.final-text{
+
+    margin-top:30px;
+
+    font-size:2rem;
+
+    font-weight:600;
+
+    letter-spacing:1px;
+}
+
+.small{
+
+    margin-top:12px;
+
+    font-size:0.9rem;
+
+    opacity:0.7;
+}
+
+a{
+    text-decoration:none;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+    .container{
+        max-width:95%;
+    }
+
+    p{
+
+        font-size:0.95rem;
+
+        line-height:1.9;
+    }
+
+    button{
+
+        padding:13px 28px;
+
+        font-size:0.95rem;
+    }
+
+    .final-text{
+
+        font-size:1.5rem;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- MUSIC -->
+<audio id="bgMusic" autoplay loop playsinline>
+    <source src="musik.mp3" type="audio/mp3">
+</audio>
+
+<!-- PAGE 1 -->
+<section class="section" id="page1">
+
+    <div class="container">
+
+        <h1>Happy<br>Birthday</h1>
+
+        <p>
+            Hari ini adalah hari yang sangat spesial,
+            karena seseorang yang begitu berarti lahir ke dunia ini.
+            Semoga di usia yang baru ini,
+            semua hal baik selalu datang menghampirimu,
+            dan semoga setiap langkahmu selalu dipenuhi kebahagiaan,
+            kesehatan,
+            serta banyak hal indah yang selama ini kamu harapkan.
+        </p>
+
+        <button onclick="nextPage(1)">
+            Buka Pesan
+        </button>
+
+    </div>
+
+    <div class="dot-container">
+        <div class="dot active"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+    </div>
+
+</section>
+
+<!-- PAGE 2 -->
+<section class="section hidden" id="page2">
+
+    <div class="container">
+
+        <h1>Kamu Tau?</h1>
+
+        <p>
+            Dari begitu banyak manusia di dunia,
+            aku tidak pernah menyangka bisa mengenal seseorang seperti kamu.
+            Seseorang yang selalu berhasil membuat semuanya terasa lebih tenang,
+            lebih hangat,
+            dan lebih berarti.
+            Kadang hanya dengan hal kecil,
+            sebuah pesan singkat,
+            atau sekadar mendengar suaramu saja,
+            semuanya bisa membuat hariku terasa jauh lebih baik.
+        </p>
+
+        <button onclick="nextPage(2)">
+            Lanjut
+        </button>
+
+    </div>
+
+    <div class="dot-container">
+        <div class="dot"></div>
+        <div class="dot active"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+    </div>
+
+</section>
+
+<!-- PAGE 3 -->
+<section class="section hidden" id="page3">
+
+    <div class="container">
+
+        <h1>Untuk Kamu</h1>
+
+        <p>
+            Aku cuma ingin hari ini menjadi sedikit lebih spesial untukmu.
+            Semoga semua hal baik selalu datang menghampiri hidupmu,
+            dan semoga senyummu selalu ada di setiap harimu.
+            Terima kasih karena selalu menjadi seseorang
+            yang membuat semuanya terasa lebih tenang dan berarti.
+            Jangan terlalu keras pada dirimu sendiri,
+            karena sejauh ini kamu sudah melakukan yang terbaik.
+        </p>
+
+        <button onclick="nextPage(3)">
+            Ada Sesuatu
+        </button>
+
+    </div>
+
+    <div class="dot-container">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot active"></div>
+        <div class="dot"></div>
+    </div>
+
+</section>
+
+<!-- PAGE 4 -->
+<section class="section hidden" id="page4">
+
+    <div class="container">
+
+        <h1>Special Video</h1>
+
+        <p>
+            Aku menyiapkan sesuatu yang mungkin sederhana,
+            tapi semoga bisa membuat harimu terasa lebih indah.
+            Semoga semua hal baik selalu menemanimu,
+            dan semoga senyummu hari ini tidak pernah hilang.
+        </p>
+
+        <a href="https://drive.google.com/file/d/10bSvvGoSzIsVCdNfdrwuDvSeTnlXcfI-/view?usp=drivesdk"
+           target="_blank">
+
+            <button>
+                Putar Video
+            </button>
+
+        </a>
+
+        <div class="final-text">
+            Miss U More
+        </div>
+
+        <div class="small">
+            Dibuat khusus untuk seseorang yang sangat berarti
+        </div>
+
+    </div>
+
+    <div class="dot-container">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot active"></div>
+    </div>
+
+</section>
+
+<script>
+
+// AUTO PLAY MUSIC
+window.addEventListener('load', () => {
+
+    const music = document.getElementById('bgMusic');
+
+    const playPromise = music.play();
+
+    if (playPromise !== undefined) {
+
+        playPromise.catch(() => {
+
+            document.body.addEventListener('click', () => {
+
+                music.play();
+
+            }, { once:true });
+
+        });
+
+    }
+
+});
+
+// NEXT PAGE
+function nextPage(step){
+
+    document.getElementById("page"+step)
+    .classList.add("hidden");
+
+    document.getElementById("page"+(step+1))
+    .classList.remove("hidden");
+
+}
+
+</script>
+
+</body>
+</html>
